@@ -1,0 +1,649 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		072631ECB55E51610311F3D5630CD1C4 /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = C0D14D9E0F3E473D90A8011CC859FB4B /* pwd2key.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1F2526B22467B5B7F2E9E57ED9DD85D3 /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = ABF9583EA2088A9BB9F0A3521D49D59D /* aescrypt.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		20ADD7FA3CE3B86E8D59CFFF4BD9F7C4 /* Pods-ReactNativeHotFix-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 488380C1D21F274457A6E58CC1C0BE72 /* Pods-ReactNativeHotFix-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21869290B1D0BC44CB993C72075DB620 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 73F63DD2805A0C317CB9E077B473E078 /* ioapi.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2314C1278704895AE7174D0D2E747818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		27AB088FD874787920C1F05438EC5F35 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = C6B1A0C046EF279C430D8F470314A4CF /* mztools.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2A68DA60D78BDA33BA259B7FF2B1E619 /* aes_via_ace.h in Headers */ = {isa = PBXBuildFile; fileRef = 10E2B2A843ECABF6EA011BAE7D0BCFB9 /* aes_via_ace.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2B0D6FF0643D7C37970160057263A927 /* ZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 66A34FC8604AEA92305B2FE8F2DB0A9A /* ZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		369EBA68925959862E52FA2C42D5B499 /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5A9DCCE5B1C2320D025E828A0FEB73 /* crypt.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		41080C65D5049DFF99853A7215765D62 /* SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = ACE48E9CCF353562241D1E4BACF4A3BF /* SSZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		490B7C5DE7D113E1DF843E3AC4960EC5 /* aestab.h in Headers */ = {isa = PBXBuildFile; fileRef = 988A634CF7886FA869994DBF555B015E /* aestab.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		49BB0A713844239B7CD42CD4F0E195E5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = C307167C24F68CAD199C6EA5C404BA31 /* zip.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4A07B40FE531D6D93FA4AE605B2CA6EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		50D1A64FCCECD2EE3529BDBE8D31BB2B /* fileenc.c in Sources */ = {isa = PBXBuildFile; fileRef = CAC66333F5FCB5A5BD74EFB596482664 /* fileenc.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		56BDF401973148368B0ECF84ED38E0EC /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3777CABB2360DEADFD17F631E5AB1AA3 /* aes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5DA07C286ED48FB0F62BE1B5CBBBF8FC /* aesopt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A8BF19BD0E47BC328E4E4D7842D9CE7 /* aesopt.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5E5AA60D445038F7F2258550ED1F2043 /* prng.h in Headers */ = {isa = PBXBuildFile; fileRef = 0133DCD3513AFF68008BA64E6CD74592 /* prng.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		614334C8E8C156F7DD60A67D9B4A4662 /* brg_types.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C551803E64EB302DB060C8BD3315A4 /* brg_types.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6276C63A9200F0B0F83C5C801777A3AA /* pwd2key.h in Headers */ = {isa = PBXBuildFile; fileRef = BD239E8FFCE7EF09AAB647EB7E930C7F /* pwd2key.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		66BE4A3C5C2627D973A67257BD600E26 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = B0149ADFD70B7641A1F1912CB4987A47 /* ioapi.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		790BACABB08CBCE0BACCBCB01ABB3BC2 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = DC46510E740553C21E423F9D0B453B58 /* SSZipArchive.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7992B4E02A531C74DA04E6CF2D3A4C8C /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = F045DD38486B49969C9CBBF42D6B40D9 /* aeskey.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		79EA5487E99F2F026899E5193471CC71 /* brg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = A1FDB546F19E23F5EB6A238A7F72DAB7 /* brg_endian.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7B71E0DBECB162BC3992007338D640C3 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 91A4BB26C0652EBB69722F4FC4D3FAC8 /* sha1.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8A8644E76DC439A92FA6635BF3708CA0 /* Pods-ReactNativeHotFix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A85C55CD1774AE91D867F8220E740EA /* Pods-ReactNativeHotFix-dummy.m */; };
+		8C9E69FF228D2FCBDE5FF20A35C18324 /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E0812D2AB001A6EC179B2B6D1002122 /* prng.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8E42B938D0904DFFA26BCB4988ED34AC /* fileenc.h in Headers */ = {isa = PBXBuildFile; fileRef = CBC3E335EACEF5E736A0531C9DF7C844 /* fileenc.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		95AB7AD8F074DD2E27A462660D228B68 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 9AD72CF2537714676CACA7E5D6ABFB2C /* hmac.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B4ECDD109ED9F75ACB820330776E6633 /* entropy.h in Headers */ = {isa = PBXBuildFile; fileRef = E60C44AC5B87E2505D4A66A09D06B97F /* entropy.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BA52D354E5BEC76F6FC7AAA8BCD2AC45 /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = D9F4BDBB5D417730E5A7F172C5D309A4 /* mztools.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C29D6E22382717F06BF8EE35A07D9C61 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DC027BAB34487CBFB81196597A64BBD /* zip.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C60DF541E19C0910627CC1BE4550FB58 /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = B5851A1C0276F036035E08D4578F07FC /* aestab.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DA28B13DD577413E62E670AE978E6CAF /* SSZipArchive-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5DDC1845C5732D290660E390C64857 /* SSZipArchive-dummy.m */; };
+		E1FC7CC1F03F8666BE8B17DA12F4B5C9 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E8663F5D672C1E7E193261ABEA59452 /* unzip.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E45C9EC136926A21BBC0123F194575CA /* SSZipArchive-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 59120FDF4B619E8A374D725538F46676 /* SSZipArchive-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F07489507A54D265FB81FF257C5A6FCE /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 9272E83B00EA4A358555C72B9AD7533B /* unzip.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F4BCB7CC26B5304B954428C9AF570102 /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C7F650F1A523D1C9A7AA90C1BE22539 /* hmac.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F63B0749FEC521F8DA9783165C1E3741 /* entropy.c in Sources */ = {isa = PBXBuildFile; fileRef = 8064A192C68A21C0877EA1B29F191940 /* entropy.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FDE811FBC3620FCEE58E49FD7DB3D101 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 57EFCED42AB202A2DC7C6D4912496748 /* sha1.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FEA9F442E114BF2602036925E2091492 /* SSZipCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBA40A2EA5DDB524F9B36278C4EE299 /* SSZipCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7985D899252E3D91DC575A99E0263407 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0D1598F931A89A5024CF43AD09A21CF;
+			remoteInfo = SSZipArchive;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0133DCD3513AFF68008BA64E6CD74592 /* prng.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = prng.h; path = SSZipArchive/aes/prng.h; sourceTree = "<group>"; };
+		0A8BF19BD0E47BC328E4E4D7842D9CE7 /* aesopt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aesopt.h; path = SSZipArchive/aes/aesopt.h; sourceTree = "<group>"; };
+		10E2B2A843ECABF6EA011BAE7D0BCFB9 /* aes_via_ace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes_via_ace.h; path = SSZipArchive/aes/aes_via_ace.h; sourceTree = "<group>"; };
+		1790B8D73E8C6E2AA22B4889C9DB29D1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A85C55CD1774AE91D867F8220E740EA /* Pods-ReactNativeHotFix-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReactNativeHotFix-dummy.m"; sourceTree = "<group>"; };
+		1E0812D2AB001A6EC179B2B6D1002122 /* prng.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = prng.c; path = SSZipArchive/aes/prng.c; sourceTree = "<group>"; };
+		1E8663F5D672C1E7E193261ABEA59452 /* unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = SSZipArchive/minizip/unzip.c; sourceTree = "<group>"; };
+		22CDD0311648690FDD160BC1379EA9D9 /* Pods-ReactNativeHotFix-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReactNativeHotFix-resources.sh"; sourceTree = "<group>"; };
+		254AC0896EF928D678F18A538D0D334E /* SSZipArchive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSZipArchive.xcconfig; sourceTree = "<group>"; };
+		294D6800CAADD62419CC4FAC1466F333 /* Pods_ReactNativeHotFix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactNativeHotFix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34D6868BA201E19036DFD0C8A69332E1 /* SSZipArchive-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSZipArchive-prefix.pch"; sourceTree = "<group>"; };
+		3777CABB2360DEADFD17F631E5AB1AA3 /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes.h; path = SSZipArchive/aes/aes.h; sourceTree = "<group>"; };
+		488380C1D21F274457A6E58CC1C0BE72 /* Pods-ReactNativeHotFix-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReactNativeHotFix-umbrella.h"; sourceTree = "<group>"; };
+		51D4237966709296A98A97FFB4CDA508 /* SSZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSZipArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5635C0D9DBF8B9464E58A5157717FBDD /* SSZipArchive.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SSZipArchive.modulemap; sourceTree = "<group>"; };
+		57EFCED42AB202A2DC7C6D4912496748 /* sha1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = SSZipArchive/aes/sha1.h; sourceTree = "<group>"; };
+		59120FDF4B619E8A374D725538F46676 /* SSZipArchive-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSZipArchive-umbrella.h"; sourceTree = "<group>"; };
+		66A34FC8604AEA92305B2FE8F2DB0A9A /* ZipArchive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZipArchive.h; path = SSZipArchive/ZipArchive.h; sourceTree = "<group>"; };
+		6C7F650F1A523D1C9A7AA90C1BE22539 /* hmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hmac.h; path = SSZipArchive/aes/hmac.h; sourceTree = "<group>"; };
+		6EB16742D38A8228274ECAEDD51913A7 /* Pods-ReactNativeHotFix-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReactNativeHotFix-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6FBA40A2EA5DDB524F9B36278C4EE299 /* SSZipCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSZipCommon.h; path = SSZipArchive/SSZipCommon.h; sourceTree = "<group>"; };
+		73F63DD2805A0C317CB9E077B473E078 /* ioapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = SSZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
+		8064A192C68A21C0877EA1B29F191940 /* entropy.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = entropy.c; path = SSZipArchive/aes/entropy.c; sourceTree = "<group>"; };
+		8BEA01F458F1DC7372DE2C456F852BA1 /* Pods-ReactNativeHotFix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReactNativeHotFix.debug.xcconfig"; sourceTree = "<group>"; };
+		8DC027BAB34487CBFB81196597A64BBD /* zip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = zip.h; path = SSZipArchive/minizip/zip.h; sourceTree = "<group>"; };
+		8DC7419603E07815E9CC9D19D100EA89 /* Pods-ReactNativeHotFix-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReactNativeHotFix-frameworks.sh"; sourceTree = "<group>"; };
+		91A4BB26C0652EBB69722F4FC4D3FAC8 /* sha1.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = sha1.c; path = SSZipArchive/aes/sha1.c; sourceTree = "<group>"; };
+		9272E83B00EA4A358555C72B9AD7533B /* unzip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = SSZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94D1E8BD287AC85CF537F2CDD66255D4 /* Pods-ReactNativeHotFix.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ReactNativeHotFix.modulemap"; sourceTree = "<group>"; };
+		988A634CF7886FA869994DBF555B015E /* aestab.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aestab.h; path = SSZipArchive/aes/aestab.h; sourceTree = "<group>"; };
+		9AD72CF2537714676CACA7E5D6ABFB2C /* hmac.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = hmac.c; path = SSZipArchive/aes/hmac.c; sourceTree = "<group>"; };
+		A1FDB546F19E23F5EB6A238A7F72DAB7 /* brg_endian.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = brg_endian.h; path = SSZipArchive/aes/brg_endian.h; sourceTree = "<group>"; };
+		ABF9583EA2088A9BB9F0A3521D49D59D /* aescrypt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aescrypt.c; path = SSZipArchive/aes/aescrypt.c; sourceTree = "<group>"; };
+		ACE48E9CCF353562241D1E4BACF4A3BF /* SSZipArchive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
+		AE374F7E175D0519F2C227FCD0CEEBAF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEB08BEC96101107883069EF5E633E7F /* Pods-ReactNativeHotFix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReactNativeHotFix.release.xcconfig"; sourceTree = "<group>"; };
+		B0149ADFD70B7641A1F1912CB4987A47 /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = SSZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
+		B5851A1C0276F036035E08D4578F07FC /* aestab.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aestab.c; path = SSZipArchive/aes/aestab.c; sourceTree = "<group>"; };
+		BD239E8FFCE7EF09AAB647EB7E930C7F /* pwd2key.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pwd2key.h; path = SSZipArchive/aes/pwd2key.h; sourceTree = "<group>"; };
+		C0D14D9E0F3E473D90A8011CC859FB4B /* pwd2key.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pwd2key.c; path = SSZipArchive/aes/pwd2key.c; sourceTree = "<group>"; };
+		C307167C24F68CAD199C6EA5C404BA31 /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = zip.c; path = SSZipArchive/minizip/zip.c; sourceTree = "<group>"; };
+		C6B1A0C046EF279C430D8F470314A4CF /* mztools.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mztools.c; path = SSZipArchive/minizip/mztools.c; sourceTree = "<group>"; };
+		CAC66333F5FCB5A5BD74EFB596482664 /* fileenc.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = fileenc.c; path = SSZipArchive/aes/fileenc.c; sourceTree = "<group>"; };
+		CBC3E335EACEF5E736A0531C9DF7C844 /* fileenc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fileenc.h; path = SSZipArchive/aes/fileenc.h; sourceTree = "<group>"; };
+		CE3829630B1972005FAA2E3CC8BE7F82 /* Pods-ReactNativeHotFix-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReactNativeHotFix-acknowledgements.plist"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D9F4BDBB5D417730E5A7F172C5D309A4 /* mztools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = SSZipArchive/minizip/mztools.h; sourceTree = "<group>"; };
+		DB5DDC1845C5732D290660E390C64857 /* SSZipArchive-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SSZipArchive-dummy.m"; sourceTree = "<group>"; };
+		DC46510E740553C21E423F9D0B453B58 /* SSZipArchive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
+		DD5A9DCCE5B1C2320D025E828A0FEB73 /* crypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
+		E60C44AC5B87E2505D4A66A09D06B97F /* entropy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = entropy.h; path = SSZipArchive/aes/entropy.h; sourceTree = "<group>"; };
+		F045DD38486B49969C9CBBF42D6B40D9 /* aeskey.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aeskey.c; path = SSZipArchive/aes/aeskey.c; sourceTree = "<group>"; };
+		F4C551803E64EB302DB060C8BD3315A4 /* brg_types.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = brg_types.h; path = SSZipArchive/aes/brg_types.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EA61475B2552CB5044D854E110939DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2314C1278704895AE7174D0D2E747818 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCDCA616FB409C95984C1427716A769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A07B40FE531D6D93FA4AE605B2CA6EF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C8E4A2A6AF4C4249F1A768C7AFBA8E4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				29D3A82AA41E19D4E6BA6377DB7E948F /* Pods-ReactNativeHotFix */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		29D3A82AA41E19D4E6BA6377DB7E948F /* Pods-ReactNativeHotFix */ = {
+			isa = PBXGroup;
+			children = (
+				AE374F7E175D0519F2C227FCD0CEEBAF /* Info.plist */,
+				94D1E8BD287AC85CF537F2CDD66255D4 /* Pods-ReactNativeHotFix.modulemap */,
+				6EB16742D38A8228274ECAEDD51913A7 /* Pods-ReactNativeHotFix-acknowledgements.markdown */,
+				CE3829630B1972005FAA2E3CC8BE7F82 /* Pods-ReactNativeHotFix-acknowledgements.plist */,
+				1A85C55CD1774AE91D867F8220E740EA /* Pods-ReactNativeHotFix-dummy.m */,
+				8DC7419603E07815E9CC9D19D100EA89 /* Pods-ReactNativeHotFix-frameworks.sh */,
+				22CDD0311648690FDD160BC1379EA9D9 /* Pods-ReactNativeHotFix-resources.sh */,
+				488380C1D21F274457A6E58CC1C0BE72 /* Pods-ReactNativeHotFix-umbrella.h */,
+				8BEA01F458F1DC7372DE2C456F852BA1 /* Pods-ReactNativeHotFix.debug.xcconfig */,
+				AEB08BEC96101107883069EF5E633E7F /* Pods-ReactNativeHotFix.release.xcconfig */,
+			);
+			name = "Pods-ReactNativeHotFix";
+			path = "Target Support Files/Pods-ReactNativeHotFix";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		45EF6AAFF08395E6546B49D83BF58434 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				294D6800CAADD62419CC4FAC1466F333 /* Pods_ReactNativeHotFix.framework */,
+				51D4237966709296A98A97FFB4CDA508 /* SSZipArchive.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		567F67ABFFC4D93AB771783242BFBD1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6509328A70FC3A6251828C797D52874C /* SSZipArchive */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6509328A70FC3A6251828C797D52874C /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				3777CABB2360DEADFD17F631E5AB1AA3 /* aes.h */,
+				10E2B2A843ECABF6EA011BAE7D0BCFB9 /* aes_via_ace.h */,
+				ABF9583EA2088A9BB9F0A3521D49D59D /* aescrypt.c */,
+				F045DD38486B49969C9CBBF42D6B40D9 /* aeskey.c */,
+				0A8BF19BD0E47BC328E4E4D7842D9CE7 /* aesopt.h */,
+				B5851A1C0276F036035E08D4578F07FC /* aestab.c */,
+				988A634CF7886FA869994DBF555B015E /* aestab.h */,
+				A1FDB546F19E23F5EB6A238A7F72DAB7 /* brg_endian.h */,
+				F4C551803E64EB302DB060C8BD3315A4 /* brg_types.h */,
+				DD5A9DCCE5B1C2320D025E828A0FEB73 /* crypt.h */,
+				8064A192C68A21C0877EA1B29F191940 /* entropy.c */,
+				E60C44AC5B87E2505D4A66A09D06B97F /* entropy.h */,
+				CAC66333F5FCB5A5BD74EFB596482664 /* fileenc.c */,
+				CBC3E335EACEF5E736A0531C9DF7C844 /* fileenc.h */,
+				9AD72CF2537714676CACA7E5D6ABFB2C /* hmac.c */,
+				6C7F650F1A523D1C9A7AA90C1BE22539 /* hmac.h */,
+				B0149ADFD70B7641A1F1912CB4987A47 /* ioapi.c */,
+				73F63DD2805A0C317CB9E077B473E078 /* ioapi.h */,
+				C6B1A0C046EF279C430D8F470314A4CF /* mztools.c */,
+				D9F4BDBB5D417730E5A7F172C5D309A4 /* mztools.h */,
+				1E0812D2AB001A6EC179B2B6D1002122 /* prng.c */,
+				0133DCD3513AFF68008BA64E6CD74592 /* prng.h */,
+				C0D14D9E0F3E473D90A8011CC859FB4B /* pwd2key.c */,
+				BD239E8FFCE7EF09AAB647EB7E930C7F /* pwd2key.h */,
+				91A4BB26C0652EBB69722F4FC4D3FAC8 /* sha1.c */,
+				57EFCED42AB202A2DC7C6D4912496748 /* sha1.h */,
+				ACE48E9CCF353562241D1E4BACF4A3BF /* SSZipArchive.h */,
+				DC46510E740553C21E423F9D0B453B58 /* SSZipArchive.m */,
+				6FBA40A2EA5DDB524F9B36278C4EE299 /* SSZipCommon.h */,
+				1E8663F5D672C1E7E193261ABEA59452 /* unzip.c */,
+				9272E83B00EA4A358555C72B9AD7533B /* unzip.h */,
+				C307167C24F68CAD199C6EA5C404BA31 /* zip.c */,
+				8DC027BAB34487CBFB81196597A64BBD /* zip.h */,
+				66A34FC8604AEA92305B2FE8F2DB0A9A /* ZipArchive.h */,
+				D39A68269DD51A9005B3D696E6EEC448 /* Support Files */,
+			);
+			path = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				567F67ABFFC4D93AB771783242BFBD1E /* Pods */,
+				45EF6AAFF08395E6546B49D83BF58434 /* Products */,
+				0C8E4A2A6AF4C4249F1A768C7AFBA8E4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D39A68269DD51A9005B3D696E6EEC448 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1790B8D73E8C6E2AA22B4889C9DB29D1 /* Info.plist */,
+				5635C0D9DBF8B9464E58A5157717FBDD /* SSZipArchive.modulemap */,
+				254AC0896EF928D678F18A538D0D334E /* SSZipArchive.xcconfig */,
+				DB5DDC1845C5732D290660E390C64857 /* SSZipArchive-dummy.m */,
+				34D6868BA201E19036DFD0C8A69332E1 /* SSZipArchive-prefix.pch */,
+				59120FDF4B619E8A374D725538F46676 /* SSZipArchive-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SSZipArchive";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5E5532EFC728B906F09D10B8E5073C3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20ADD7FA3CE3B86E8D59CFFF4BD9F7C4 /* Pods-ReactNativeHotFix-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		692E4469AEB682579BBBF067AEA4C0F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56BDF401973148368B0ECF84ED38E0EC /* aes.h in Headers */,
+				2A68DA60D78BDA33BA259B7FF2B1E619 /* aes_via_ace.h in Headers */,
+				5DA07C286ED48FB0F62BE1B5CBBBF8FC /* aesopt.h in Headers */,
+				490B7C5DE7D113E1DF843E3AC4960EC5 /* aestab.h in Headers */,
+				79EA5487E99F2F026899E5193471CC71 /* brg_endian.h in Headers */,
+				614334C8E8C156F7DD60A67D9B4A4662 /* brg_types.h in Headers */,
+				369EBA68925959862E52FA2C42D5B499 /* crypt.h in Headers */,
+				B4ECDD109ED9F75ACB820330776E6633 /* entropy.h in Headers */,
+				8E42B938D0904DFFA26BCB4988ED34AC /* fileenc.h in Headers */,
+				F4BCB7CC26B5304B954428C9AF570102 /* hmac.h in Headers */,
+				21869290B1D0BC44CB993C72075DB620 /* ioapi.h in Headers */,
+				BA52D354E5BEC76F6FC7AAA8BCD2AC45 /* mztools.h in Headers */,
+				5E5AA60D445038F7F2258550ED1F2043 /* prng.h in Headers */,
+				6276C63A9200F0B0F83C5C801777A3AA /* pwd2key.h in Headers */,
+				FDE811FBC3620FCEE58E49FD7DB3D101 /* sha1.h in Headers */,
+				E45C9EC136926A21BBC0123F194575CA /* SSZipArchive-umbrella.h in Headers */,
+				41080C65D5049DFF99853A7215765D62 /* SSZipArchive.h in Headers */,
+				FEA9F442E114BF2602036925E2091492 /* SSZipCommon.h in Headers */,
+				F07489507A54D265FB81FF257C5A6FCE /* unzip.h in Headers */,
+				C29D6E22382717F06BF8EE35A07D9C61 /* zip.h in Headers */,
+				2B0D6FF0643D7C37970160057263A927 /* ZipArchive.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		157C32FA8725A59AD5664FC539C29C30 /* Pods-ReactNativeHotFix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 539B2FED0141431187AA8D64E75E3DF5 /* Build configuration list for PBXNativeTarget "Pods-ReactNativeHotFix" */;
+			buildPhases = (
+				FB884F6905882319C27F33AF18B1A2A0 /* Sources */,
+				5EA61475B2552CB5044D854E110939DB /* Frameworks */,
+				5E5532EFC728B906F09D10B8E5073C3C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C973562773AD208DD08DD8614952A78 /* PBXTargetDependency */,
+			);
+			name = "Pods-ReactNativeHotFix";
+			productName = "Pods-ReactNativeHotFix";
+			productReference = 294D6800CAADD62419CC4FAC1466F333 /* Pods_ReactNativeHotFix.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A0D1598F931A89A5024CF43AD09A21CF /* SSZipArchive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1146DC51FD7CA4619570B480D514EE0C /* Build configuration list for PBXNativeTarget "SSZipArchive" */;
+			buildPhases = (
+				BC9E80C7DBB72BDBCF31793A2AFB7E78 /* Sources */,
+				EBCDCA616FB409C95984C1427716A769 /* Frameworks */,
+				692E4469AEB682579BBBF067AEA4C0F2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSZipArchive;
+			productName = SSZipArchive;
+			productReference = 51D4237966709296A98A97FFB4CDA508 /* SSZipArchive.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 45EF6AAFF08395E6546B49D83BF58434 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				157C32FA8725A59AD5664FC539C29C30 /* Pods-ReactNativeHotFix */,
+				A0D1598F931A89A5024CF43AD09A21CF /* SSZipArchive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC9E80C7DBB72BDBCF31793A2AFB7E78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2526B22467B5B7F2E9E57ED9DD85D3 /* aescrypt.c in Sources */,
+				7992B4E02A531C74DA04E6CF2D3A4C8C /* aeskey.c in Sources */,
+				C60DF541E19C0910627CC1BE4550FB58 /* aestab.c in Sources */,
+				F63B0749FEC521F8DA9783165C1E3741 /* entropy.c in Sources */,
+				50D1A64FCCECD2EE3529BDBE8D31BB2B /* fileenc.c in Sources */,
+				95AB7AD8F074DD2E27A462660D228B68 /* hmac.c in Sources */,
+				66BE4A3C5C2627D973A67257BD600E26 /* ioapi.c in Sources */,
+				27AB088FD874787920C1F05438EC5F35 /* mztools.c in Sources */,
+				8C9E69FF228D2FCBDE5FF20A35C18324 /* prng.c in Sources */,
+				072631ECB55E51610311F3D5630CD1C4 /* pwd2key.c in Sources */,
+				7B71E0DBECB162BC3992007338D640C3 /* sha1.c in Sources */,
+				DA28B13DD577413E62E670AE978E6CAF /* SSZipArchive-dummy.m in Sources */,
+				790BACABB08CBCE0BACCBCB01ABB3BC2 /* SSZipArchive.m in Sources */,
+				E1FC7CC1F03F8666BE8B17DA12F4B5C9 /* unzip.c in Sources */,
+				49BB0A713844239B7CD42CD4F0E195E5 /* zip.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB884F6905882319C27F33AF18B1A2A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A8644E76DC439A92FA6635BF3708CA0 /* Pods-ReactNativeHotFix-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7C973562773AD208DD08DD8614952A78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSZipArchive;
+			target = A0D1598F931A89A5024CF43AD09A21CF /* SSZipArchive */;
+			targetProxy = 7985D899252E3D91DC575A99E0263407 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		30DF3DDE0886880F124CDB1C6062CDD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 254AC0896EF928D678F18A538D0D334E /* SSZipArchive.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SSZipArchive/SSZipArchive-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SSZipArchive/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SSZipArchive/SSZipArchive.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SSZipArchive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7A17C5C824F80EAB173394EEDECA355A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 254AC0896EF928D678F18A538D0D334E /* SSZipArchive.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SSZipArchive/SSZipArchive-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SSZipArchive/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SSZipArchive/SSZipArchive.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SSZipArchive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7E15E83FB9EB445FF09A9A73BD706E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BEA01F458F1DC7372DE2C456F852BA1 /* Pods-ReactNativeHotFix.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ReactNativeHotFix/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ReactNativeHotFix/Pods-ReactNativeHotFix.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ReactNativeHotFix;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB6B395174533B2297E2EC62DF543547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEB08BEC96101107883069EF5E633E7F /* Pods-ReactNativeHotFix.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ReactNativeHotFix/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ReactNativeHotFix/Pods-ReactNativeHotFix.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ReactNativeHotFix;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1146DC51FD7CA4619570B480D514EE0C /* Build configuration list for PBXNativeTarget "SSZipArchive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A17C5C824F80EAB173394EEDECA355A /* Debug */,
+				30DF3DDE0886880F124CDB1C6062CDD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		539B2FED0141431187AA8D64E75E3DF5 /* Build configuration list for PBXNativeTarget "Pods-ReactNativeHotFix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E15E83FB9EB445FF09A9A73BD706E0E /* Debug */,
+				CB6B395174533B2297E2EC62DF543547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
