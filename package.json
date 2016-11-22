@@ -5,29 +5,15 @@
   "main": "HotFixRequire.js",
   "author": "kimber <jinbangzhu@gmail.com>",
   "files": [
-    "ios/ReactNativeAutoUpdater.xcodeproj",
-    "react-native-auto-updater.js",
-    "README.md",
-    "ios/ReactNativeAutoUpdater/ReactNativeAutoUpdater.h",
-    "ios/ReactNativeAutoUpdater/ReactNativeAutoUpdater.m",
-    "ios/ReactNativeAutoUpdater/StatusBarNotification.h",
-    "ios/ReactNativeAutoUpdater/StatusBarNotification.m",
-    "android/build.gradle",
-    "android/src/main/AndroidManifest.xml",
-    "android/src/main/res/values/strings.xml",
-    "android/src/main/res/values-es/strings.xml",
-    "android/src/main/java/com/aerofs/reactnativeautoupdater/ReactNativeAutoUpdater.java",
-    "android/src/main/java/com/aerofs/reactnativeautoupdater/ReactNativeAutoUpdaterActivity.java",
-    "android/src/main/java/com/aerofs/reactnativeautoupdater/ReactNativeAutoUpdaterPackage.java",
-    "android/src/main/java/com/aerofs/reactnativeautoupdater/ReactNativeAutoUpdaterModule.java",
-    "android/src/main/java/com/aerofs/reactnativeautoupdater/Version.java"
+    "ios/*",
+    "android/*"
   ],
   "peerDependencies": {
     "react-native": ">=0.18.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:aerofs/react-native-auto-updater.git"
+    "url": "git@github.com:kimlet/react-native-hotupdate.git"
   },
   "devDependencies": {
     "react-native": ">=0.18.0"
