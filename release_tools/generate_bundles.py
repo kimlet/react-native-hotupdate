@@ -3,6 +3,7 @@ import os
 import json
 import subprocess
 import json
+import shutil
 
 def main():
     release_repository_path = 'release_repository'
@@ -75,7 +76,7 @@ def main():
     output = subprocess.Popen(npm_shell_ios, shell=True, stdout=subprocess.PIPE).stdout.read()
     print(output)
 
-    output = subprocess.Popen('./release_tools/generate_patches.py', shell=True, stdout=subprocess.PIPE).stdout.read()
+    output = subprocess.Popen('npm run bundle-patches', shell=True, stdout=subprocess.PIPE).stdout.read()
     print(output)
 
     print('all done')

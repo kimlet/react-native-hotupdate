@@ -1,12 +1,13 @@
 {
   "name": "react-native-hotupdate",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "dynamic updates to React Native apps",
   "main": "HotFixRequire.js",
   "author": "kimber <jinbangzhu@gmail.com>",
   "files": [
     "ios/*",
-    "android/*"
+    "android/*",
+    "release_tools/*"
   ],
   "peerDependencies": {
     "react-native": ">=0.18.0"
@@ -16,7 +17,7 @@
     "url": "git@github.com:kimlet/react-native-hotupdate.git"
   },
   "devDependencies": {
-    "react-native": ">=0.18.0"
+    "react-native": ">=0.37.0"
     },
   "license": "MIT",
   "keywords": [
