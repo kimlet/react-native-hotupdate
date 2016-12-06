@@ -12,31 +12,29 @@ pod 'SSZipArchive'
 ```
 NSURL *upgradeUrl = [NSURL URLWithString:@"http://localhost:8000/v0.0.1_v0.0.2.json"];
 NSURL *patchUrl = [NSURL URLWithString:@"http://localhost:8000/v0.0.1_v0.0.2"];
-  
+
 // built-in resource
 NSURL* defaultRootLocation = [[NSBundle mainBundle] URLForResource:@"rnbundle" withExtension:@""];
 NSString *defaultRootPath = [[defaultRootLocation absoluteString] stringByReplacingOccurrencesOfString:@"file://" withString:@""];
-  
-// sdcard resource
+
+// file resource
 NSString *extraRootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-  
-  
+
+
 ReactNativeHotFix *hotFixInstance =[ReactNativeHotFix sharedInstance];
 [hotFixInstance setDelegate:self];
 [hotFixInstance init:defaultRootPath extraRootPath:extraRootPath upgradeUrl:upgradeUrl patchUrl:patchUrl];
-  
-// importent! set staticly image path
-NSDictionary *props = @{@"extraBundleRootPath": extraRootPath};
-  
+
+
 NSURL *jsbundleUrl = [hotFixInstance getUrl];
 
 
 NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-  
+
 
 RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsbundleUrl
                                                   moduleName:@"YourModuleName"
-                                           initialProperties:props
+                                           initialProperties:nil
                                                launchOptions:launchOptions];
 rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
@@ -56,7 +54,7 @@ project(':reactnativehotfixlib').projectDir = new File('../node_modules/react-na
 ```
 #####app.gradle
 ```
-//add reactnativehotfixlib to dependencies 
+//add reactnativehotfixlib to dependencies
 dependencies {
     compile project(":reactnativehotfixlib")
     ...

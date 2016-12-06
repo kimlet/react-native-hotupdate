@@ -67,7 +67,6 @@ public class ReactNativeHotFix {
 
     private String extraZipBoundPath;
     private String extraJSPath;
-    private String extraAssetsPath;
     private String extraInfoPath;
 
 
@@ -128,7 +127,6 @@ public class ReactNativeHotFix {
 
     private void initialResource() {
         extraJSPath = extraBundleRootPath + "index.android.jsbundle";
-        extraAssetsPath = extraBundleRootPath + "assets";
         extraZipBoundPath = extraBundleRootPath + "android.zip";
         extraInfoPath = extraBundleRootPath + "info.json";
 
@@ -142,11 +140,9 @@ public class ReactNativeHotFix {
 
     private void unzipItIfNeed() {
         File jsFile = new File(extraJSPath);
-        File assetsFile = new File(extraAssetsPath);
 
-        if (!jsFile.exists() || !assetsFile.exists()) {
+        if (!jsFile.exists()) {
             FileUtils.deleteFileOrFolderSilently(jsFile);
-            FileUtils.deleteFileOrFolderSilently(assetsFile);
 
             try {
                 FileUtils.unzipFile(new File(extraZipBoundPath), extraBundleRootPath);
@@ -427,7 +423,6 @@ public class ReactNativeHotFix {
 
     private void removeOldFiles() {
         FileUtils.deleteFileOrFolderSilently(new File(extraJSPath));
-        FileUtils.deleteFileOrFolderSilently(new File(extraAssetsPath));
         FileUtils.deleteFileOrFolderSilently(new File(extraInfoPath));
         FileUtils.deleteFileOrFolderSilently(new File(extraJSPath + ".meta"));
     }
