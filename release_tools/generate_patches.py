@@ -17,9 +17,9 @@ def main():
         nextDir = baseDir + dirs[0]
         lastDir = dirs[-1]
 
-        androidImg = baseDir+lastDir+"/bundle/android/assets/img"
-        iosImg = baseDir+lastDir+"/bundle/ios/assets/img"
-        copyAssets(androidImg, iosImg)
+        # androidImg = baseDir+lastDir+"/bundle/android/assets/img"
+        # iosImg = baseDir+lastDir+"/bundle/ios/assets/img"
+        # copyAssets(androidImg, iosImg)
 
         # create zip
         for folder in dirs:

@@ -66,7 +66,7 @@ def main():
     android_bundle_file_path = rnbundle_android_file_path + '/index.android.jsbundle'
     ios_bundle_file_path = rnbundle_ios_file_path + '/index.ios.jsbundle'
 
-    npm_shell_android = 'react-native bundle --platform android --dev false --entry-file ./index.android.js --bundle-output '+android_bundle_file_path+' --assets-dest '+rnbundle_android_file_path+'/assets'
+    npm_shell_android = 'react-native bundle --platform android --dev false --entry-file ./index.android.js --bundle-output '+android_bundle_file_path+' --assets-dest '+rnbundle_android_file_path
     npm_shell_ios = 'react-native bundle --platform ios --dev false --entry-file ./index.ios.js --bundle-output '+ios_bundle_file_path+' --assets-dest '+rnbundle_ios_file_path
 
     print('generate folders complete! wainting for execture bundle...');
