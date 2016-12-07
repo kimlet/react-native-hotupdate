@@ -46,6 +46,12 @@ public class FileUtils {
             while ((entry = zipStream.getNextEntry()) != null) {
                 String fileName = entry.getName();
                 File file = new File(destinationFolder, fileName);
+
+                // remove if exists
+                if (file.exists()){
+                    deleteFileOrFolderSilently(file);
+                }
+
                 if (entry.isDirectory()) {
                     file.mkdirs();
                 } else {
