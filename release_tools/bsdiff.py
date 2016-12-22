@@ -21,6 +21,10 @@ def main(argv):
             patchesfilepath = arg
 
 
+    generatePatch(originfilepath, targetfilepath, patchesfilepath)
+
+
+def generatePatch(originfilepath, targetfilepath, patchesfilepath):
     # start to diff
     patch = bsdiff4.file_diff(originfilepath, targetfilepath, patchesfilepath)
 
@@ -37,9 +41,8 @@ def main(argv):
     patchsJsonFile.write(outputJson)
     patchsJsonFile.close();
 
-
-
     print 'patch file is ', patchesfilepath
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

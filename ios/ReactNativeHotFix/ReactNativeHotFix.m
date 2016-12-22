@@ -97,6 +97,25 @@ static bool isFirstAccess = YES;
     return defaultVersion;
 }
 
+-(NSString *)getVersion:(NSString *) jsonPath
+{
+    NSData *infoJsonData = [NSData dataWithContentsOfFile:jsonPath];
+    id infoJson =  [NSJSONSerialization JSONObjectWithData:infoJsonData options:0 error:nil];
+    NSString *defaultJsonVersion = [infoJson objectForKey:@"version"];
+    
+    return defaultJsonVersion;
+}
+
+-(NSString *)getDefaultVersion
+{
+    return [self getVersion:[self.defaultRootPath stringByAppendingPathComponent:@"info.json"]];
+}
+
+-(NSString *)getExtraVersion
+{
+    return [self getVersion:[self.extraRootPath stringByAppendingPathComponent:@"info.json"]];
+}
+
 -(void)start
 {
     [self loadUpgradeInfo:self.upgradeUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -115,37 +134,7 @@ static bool isFirstAccess = YES;
                 NSString *targetFileMd5 = json[@"targetFileMd5"];
                 NSString *patchFileMd5 = json[@"patchFileMd5"];
                 
-                NSString *oldZipBundleFile;
-                
-                if (self.defaultaJSPath && [[NSFileManager defaultManager] fileExistsAtPath:self.defaultZipBundlePath]) {
-                    oldZipBundleFile = self.defaultZipBundlePath;
-                }
-                if (self.extraJSPath && [[NSFileManager defaultManager] fileExistsAtPath:self.extraZipBundlePath]) {
-                    oldZipBundleFile = self.extraZipBundlePath;
-                }
-                
-                if ([[NSFileManager defaultManager] fileExistsAtPath:oldZipBundleFile]) {
-                    
-//                    [self copyAssetsFolderIfNeed];
-                    
-                    NSString *oldZipBundleFileMD5 = [self getZipBundleFileMd5];
-                    if ([oldZipBundleFileMD5 isEqualToString:originFileMd5]) {
-                        // start to download
-                        NSString *patchFile = [self.extraZipBundlePath stringByAppendingString:@"_patch_"];
-                        
-                        [self downloadPatchFileAndMerge:self.patchUrl originFile:oldZipBundleFile targetFile:self.extraZipBundlePath targetFileMD5:targetFileMd5 patchFile: patchFile patchFileMD5:patchFileMd5];
-                        
-                    }else{
-                        [self.delegate ReactNativeHotFix:self updateFailed:@"origin file verify md5 failed"];
-                    }
-                    
-                }else{
-                    /**
-                     * does not find rnbundle/index.ios.bundle
-                     */
-                    [self.delegate ReactNativeHotFix:self updateFailed:@"file not found error"];
-                }
-                
+                [self start:originFileMd5 targetFileMd5:targetFileMd5 patchFileMd5:patchFileMd5];
                 NSLog(@"success %@", json[@"originFileMd5"]);
             }else{
                 [self.delegate ReactNativeHotFix:self updateFailed:@"service error"];
@@ -154,6 +143,41 @@ static bool isFirstAccess = YES;
             [self.delegate ReactNativeHotFix:self updateFailed:@"network error"];
         }
     }];
+}
+
+-(void)start: (NSString *) originFileMd5 targetFileMd5:(NSString *) targetFileMd5 patchFileMd5:(NSString *) patchFileMd5
+{
+    NSString *oldZipBundleFile;
+    
+    if (self.defaultaJSPath && [[NSFileManager defaultManager] fileExistsAtPath:self.defaultZipBundlePath]) {
+        oldZipBundleFile = self.defaultZipBundlePath;
+    }
+    if (self.extraJSPath && [[NSFileManager defaultManager] fileExistsAtPath:self.extraZipBundlePath]) {
+        oldZipBundleFile = self.extraZipBundlePath;
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:oldZipBundleFile]) {
+        
+        //                    [self copyAssetsFolderIfNeed];
+        
+        NSString *oldZipBundleFileMD5 = [self getZipBundleFileMd5];
+        if ([oldZipBundleFileMD5 isEqualToString:originFileMd5]) {
+            // start to download
+            NSString *patchFile = [self.extraZipBundlePath stringByAppendingString:@"_patch_"];
+            
+            [self downloadPatchFileAndMerge:self.patchUrl originFile:oldZipBundleFile targetFile:self.extraZipBundlePath targetFileMD5:targetFileMd5 patchFile: patchFile patchFileMD5:patchFileMd5];
+            
+        }else{
+            [self.delegate ReactNativeHotFix:self updateFailed:@"origin file verify md5 failed"];
+        }
+        
+    }else{
+        /**
+         * does not find rnbundle/index.ios.bundle
+         */
+        [self.delegate ReactNativeHotFix:self updateFailed:@"file not found error"];
+    }
+
 }
 
 -(void) downloadPatchFileAndMerge:(NSURL *) patchUrl originFile:(NSString *) originFile targetFile:(NSString *) targetFile targetFileMD5:(NSString *) targetFileMD5 patchFile:(NSString *) patchFile patchFileMD5:(NSString *) patchFileMD5{

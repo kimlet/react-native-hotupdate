@@ -152,6 +152,40 @@ public class ReactNativeHotFix {
         }
     }
 
+    /**
+     * call this method manual, the MD5 string should from server
+     *
+     * @param originFileMd5 the old zip file md5
+     * @param targetFileMd5 the new zip file md5
+     * @param patchFileMd5  the patch file md5
+     * @param patchUrl      the patch url on server
+     */
+    public void start(String originFileMd5, String targetFileMd5, String patchFileMd5, String patchUrl) {
+        Log.d(TAG, "originFileMd5:" + originFileMd5);
+
+        File originFile = getBundleZipFile();
+        if (originFile.exists()) {
+            // get old file md5
+            String oldOriginFileMd5 = MD5Helper.calculateMD5(originFile);
+            if (!TextUtils.isEmpty(oldOriginFileMd5)) {
+                // check md5
+                if (oldOriginFileMd5.equals(originFileMd5)) {
+                    downloadFile(patchUrl, targetFileMd5, patchFileMd5);
+                } else {
+                    sendMessageWithFail();
+                    Log.d(TAG, "oldOriginFileMd5 not equal originFileMd5");
+                }
+            } else {
+                sendMessageWithFail();
+                Log.d(TAG, "oldOriginFileMd5 is null");
+            }
+        } else {
+            sendMessageWithFail();
+            Log.d(TAG, "originFile not exists");
+        }
+
+    }
+
     private void doStart() {
 
 
@@ -162,43 +196,14 @@ public class ReactNativeHotFix {
                     String originFileMd5 = jsonObject.getString("originFileMd5");
                     String targetFileMd5 = jsonObject.getString("targetFileMd5");
                     String patchFileMd5 = jsonObject.getString("patchFileMd5");
-
-
-                    Log.d(TAG, "originFileMd5:" + originFileMd5);
-
-                    File originFile = getBundleZipFile();
-
-                    if (originFile.exists()) {
-
-                        // get old file md5
-                        String oldOriginFileMd5 = MD5Helper.calculateMD5(originFile);
-
-                        if (!TextUtils.isEmpty(oldOriginFileMd5)) {
-                            // check md5
-                            if (oldOriginFileMd5.equals(originFileMd5)) {
-                                downloadFile(patchUrl, targetFileMd5, patchFileMd5);
-                            } else {
-                                sendMessageWithFail();
-                                Log.d(TAG, "oldOriginFileMd5 not equal originFileMd5");
-                            }
-                        } else {
-                            sendMessageWithFail();
-                            Log.d(TAG, "oldOriginFileMd5 is null");
-                        }
-
-                    } else {
-                        sendMessageWithFail();
-                        Log.d(TAG, "originFile not exists");
-                    }
-
-
+                    start(originFileMd5, targetFileMd5, patchFileMd5, patchUrl);
                 } catch (JSONException e) {
                     e.printStackTrace();
-
+                    sendMessageWithFail();
                 }
+
             }
         }, new Response.ErrorListener() {
-
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
@@ -250,34 +255,70 @@ public class ReactNativeHotFix {
         }
     }
 
-    private int getDefaultVersionCode() {
-        InputStream inputStream = null;
+    /**
+     * get int version code
+     *
+     * @return int
+     */
+    public int getDefaultVersionCode() {
+        String version = getDefaultVersion();
+        if (TextUtils.isEmpty(version)) return -1;
+
+        return Integer.parseInt(getDefaultVersion().replace(".", ""));
+    }
+
+    /**
+     * get version
+     *
+     * @return
+     */
+    public String getDefaultVersion() {
+        InputStream inputStream;
         try {
             inputStream = weakReferenceContext.get().getAssets().open("info.json");
             String jsonInfo = convertStreamToString(inputStream);
 
             JSONObject jsonObject = new JSONObject(jsonInfo);
 
-            return Integer.parseInt(jsonObject.getString("version").replace(".", ""));
+            return jsonObject.getString("version");
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return -1;
+        return null;
     }
 
-    private int getExtraVersionCode() {
+
+    /**
+     * extraVersionCode
+     * e.g 23
+     *
+     * @return
+     */
+    public int getExtraVersionCode() {
+        String version = getExtraVersion();
+        if (TextUtils.isEmpty(version)) return -1;
+
+        return Integer.parseInt(getDefaultVersion().replace(".", ""));
+    }
+
+    /**
+     * extraVersion
+     * e.g 0.2.3
+     *
+     * @return
+     */
+    public String getExtraVersion() {
         try {
             FileInputStream fileInputStream = new FileInputStream(extraInfoPath);
             String jsonInfo = convertStreamToString(fileInputStream);
             JSONObject jsonObject = new JSONObject(jsonInfo);
 
-            return Integer.parseInt(jsonObject.getString("version").replace(".", ""));
+            return jsonObject.getString("version");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return -1;
+        return null;
     }
 
     private String convertStreamToString(InputStream is) throws Exception {

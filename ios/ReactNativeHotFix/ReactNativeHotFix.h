@@ -55,7 +55,10 @@
 -(NSURL *) getUrl;
 
 -(void) start;
+-(void) start: (NSString *) originFileMd5 targetFileMd5:(NSString *) targetFileMd5 patchFileMd5:(NSString *) patchFileMd5;
 -(void) bspatch:(NSString *) oldFile newFile:(NSString *) newFile patchFile:(NSString *) patchFile;
+-(NSString *) getDefaultVersion;
+-(NSString *) getExtraVersion;
 
 
 @end

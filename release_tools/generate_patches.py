@@ -4,6 +4,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 import os
 import subprocess
 import shutil
+import bsdiff
 
 def main():
     release_repository_path = 'release_repository'
@@ -59,11 +60,13 @@ def main():
             targetFileIos = baseDir + lastDir + '/bundle/ios.zip'
             patchesFileIos = baseDir + lastDir + '/patches/ios/' + nextFolderName + '_' + lastDir
 
-            shellAndroid = './release_tools/bsdiff.py -o ' + androidZipFile + ' -t ' + targetFileAndroid + ' -p ' + patchesFileAndroid
-            shellIos = './release_tools/bsdiff.py -o ' + iosZipFile + ' -t ' + targetFileIos + ' -p ' + patchesFileIos
-
-            subprocess.Popen(shellAndroid, shell=True, stdout=subprocess.PIPE).stdout.read()
-            subprocess.Popen(shellIos, shell=True, stdout=subprocess.PIPE).stdout.read()
+            bsdiff.generatePatch(androidZipFile, targetFileAndroid, patchesFileAndroid)
+            bsdiff.generatePatch(iosZipFile, targetFileIos, patchesFileIos)
+            # shellAndroid = './node_modules/react-native-hotupdate/release_tools/bsdiff.py -o ' + androidZipFile + ' -t ' + targetFileAndroid + ' -p ' + patchesFileAndroid
+            # shellIos = './node_modules/react-native-hotupdate/release_tools/bsdiff.py -o ' + iosZipFile + ' -t ' + targetFileIos + ' -p ' + patchesFileIos
+            #
+            # subprocess.Popen(shellAndroid, shell=True, stdout=subprocess.PIPE).stdout.read()
+            # subprocess.Popen(shellIos, shell=True, stdout=subprocess.PIPE).stdout.read()
             nextFolderName = folder
             nextDir = baseDir + folder
 

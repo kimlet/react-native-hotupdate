@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 .setPatchUrl("http://127.0.0.1:8000/v0.0.1_v0.0.2")
                 .setHandler(handler);
 
+//        reactNativeHotFix.getExtraVersionCode();
+
         reactNativeHotFix.start();
 
     }
