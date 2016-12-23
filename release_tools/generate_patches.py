@@ -9,6 +9,7 @@ import bsdiff
 def main():
     release_repository_path = 'release_repository'
     dirs = mylistdir(release_repository_path)
+    dirs.sort(key=lambda x, : int(x.replace('v', '').replace('.', '')))
 
 
     baseDir = './'+release_repository_path+'/'
