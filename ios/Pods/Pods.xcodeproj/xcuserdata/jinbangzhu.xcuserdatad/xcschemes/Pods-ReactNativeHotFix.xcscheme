@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "157C32FA8725A59AD5664FC539C29C30"
+               BlueprintIdentifier = "592CF6F8EA76992453B245DB32F919E8"
                BuildableName = "Pods_ReactNativeHotFix.framework"
                BlueprintName = "Pods-ReactNativeHotFix"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "157C32FA8725A59AD5664FC539C29C30"
+            BlueprintIdentifier = "592CF6F8EA76992453B245DB32F919E8"
             BuildableName = "Pods_ReactNativeHotFix.framework"
             BlueprintName = "Pods-ReactNativeHotFix"
             ReferencedContainer = "container:Pods.xcodeproj">

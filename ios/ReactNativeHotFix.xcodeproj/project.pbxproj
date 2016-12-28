@@ -28,6 +28,40 @@
 		6A6A3E111DDC3EAC001987DA /* randtable.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A3DD71DDC3DE0001987DA /* randtable.c */; };
 		6AB6B32E1DD5C5FC00FC9540 /* ReactNativeHotFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6B32D1DD5C5FC00FC9540 /* ReactNativeHotFix.m */; };
 		6AB6B32F1DD5C5FC00FC9540 /* ReactNativeHotFix.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 6AB6B32C1DD5C5FC00FC9540 /* ReactNativeHotFix.h */; };
+		6AC61D361E13926800FA28AC /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D131E13926800FA28AC /* aes.h */; };
+		6AC61D371E13926800FA28AC /* aes_via_ace.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D141E13926800FA28AC /* aes_via_ace.h */; };
+		6AC61D381E13926800FA28AC /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D151E13926800FA28AC /* aescrypt.c */; };
+		6AC61D391E13926800FA28AC /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D161E13926800FA28AC /* aeskey.c */; };
+		6AC61D3A1E13926800FA28AC /* aesopt.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D171E13926800FA28AC /* aesopt.h */; };
+		6AC61D3B1E13926800FA28AC /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D181E13926800FA28AC /* aestab.c */; };
+		6AC61D3C1E13926800FA28AC /* aestab.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D191E13926800FA28AC /* aestab.h */; };
+		6AC61D3D1E13926800FA28AC /* brg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D1A1E13926800FA28AC /* brg_endian.h */; };
+		6AC61D3E1E13926800FA28AC /* brg_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D1B1E13926800FA28AC /* brg_types.h */; };
+		6AC61D3F1E13926800FA28AC /* entropy.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D1C1E13926800FA28AC /* entropy.c */; };
+		6AC61D401E13926800FA28AC /* entropy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D1D1E13926800FA28AC /* entropy.h */; };
+		6AC61D411E13926800FA28AC /* fileenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D1E1E13926800FA28AC /* fileenc.c */; };
+		6AC61D421E13926800FA28AC /* fileenc.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D1F1E13926800FA28AC /* fileenc.h */; };
+		6AC61D431E13926800FA28AC /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D201E13926800FA28AC /* hmac.c */; };
+		6AC61D441E13926800FA28AC /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D211E13926800FA28AC /* hmac.h */; };
+		6AC61D451E13926800FA28AC /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D221E13926800FA28AC /* prng.c */; };
+		6AC61D461E13926800FA28AC /* prng.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D231E13926800FA28AC /* prng.h */; };
+		6AC61D471E13926800FA28AC /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D241E13926800FA28AC /* pwd2key.c */; };
+		6AC61D481E13926800FA28AC /* pwd2key.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D251E13926800FA28AC /* pwd2key.h */; };
+		6AC61D491E13926800FA28AC /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D261E13926800FA28AC /* sha1.c */; };
+		6AC61D4A1E13926800FA28AC /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D271E13926800FA28AC /* sha1.h */; };
+		6AC61D4B1E13926800FA28AC /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D291E13926800FA28AC /* crypt.h */; };
+		6AC61D4C1E13926800FA28AC /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D2A1E13926800FA28AC /* ioapi.c */; };
+		6AC61D4D1E13926800FA28AC /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D2B1E13926800FA28AC /* ioapi.h */; };
+		6AC61D4E1E13926800FA28AC /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D2C1E13926800FA28AC /* mztools.c */; };
+		6AC61D4F1E13926800FA28AC /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D2D1E13926800FA28AC /* mztools.h */; };
+		6AC61D501E13926800FA28AC /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D2E1E13926800FA28AC /* unzip.c */; };
+		6AC61D511E13926800FA28AC /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D2F1E13926800FA28AC /* unzip.h */; };
+		6AC61D521E13926800FA28AC /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D301E13926800FA28AC /* zip.c */; };
+		6AC61D531E13926800FA28AC /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D311E13926800FA28AC /* zip.h */; };
+		6AC61D541E13926800FA28AC /* SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D321E13926800FA28AC /* SSZipArchive.h */; };
+		6AC61D551E13926800FA28AC /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC61D331E13926800FA28AC /* SSZipArchive.m */; };
+		6AC61D561E13926800FA28AC /* SSZipCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D341E13926800FA28AC /* SSZipCommon.h */; };
+		6AC61D571E13926800FA28AC /* ZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D351E13926800FA28AC /* ZipArchive.h */; };
 		6AE49E491DDAB19900AB07BC /* ReactNativeHotFix.h in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6B32C1DD5C5FC00FC9540 /* ReactNativeHotFix.h */; };
 		6AE49E591DDAB2E200AB07BC /* ReactNativeHotFix.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AB6B32C1DD5C5FC00FC9540 /* ReactNativeHotFix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AE49E9D1DDAB50F00AB07BC /* ReactNativeHotFix.m in Copy Files */ = {isa = PBXBuildFile; fileRef = 6AB6B32D1DD5C5FC00FC9540 /* ReactNativeHotFix.m */; };
@@ -67,6 +101,40 @@
 		6AB6B3291DD5C5FC00FC9540 /* libReactNativeHotFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeHotFix.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB6B32C1DD5C5FC00FC9540 /* ReactNativeHotFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeHotFix.h; sourceTree = "<group>"; };
 		6AB6B32D1DD5C5FC00FC9540 /* ReactNativeHotFix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeHotFix.m; sourceTree = "<group>"; };
+		6AC61D131E13926800FA28AC /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		6AC61D141E13926800FA28AC /* aes_via_ace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes_via_ace.h; sourceTree = "<group>"; };
+		6AC61D151E13926800FA28AC /* aescrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aescrypt.c; sourceTree = "<group>"; };
+		6AC61D161E13926800FA28AC /* aeskey.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aeskey.c; sourceTree = "<group>"; };
+		6AC61D171E13926800FA28AC /* aesopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aesopt.h; sourceTree = "<group>"; };
+		6AC61D181E13926800FA28AC /* aestab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aestab.c; sourceTree = "<group>"; };
+		6AC61D191E13926800FA28AC /* aestab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aestab.h; sourceTree = "<group>"; };
+		6AC61D1A1E13926800FA28AC /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
+		6AC61D1B1E13926800FA28AC /* brg_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
+		6AC61D1C1E13926800FA28AC /* entropy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = entropy.c; sourceTree = "<group>"; };
+		6AC61D1D1E13926800FA28AC /* entropy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entropy.h; sourceTree = "<group>"; };
+		6AC61D1E1E13926800FA28AC /* fileenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fileenc.c; sourceTree = "<group>"; };
+		6AC61D1F1E13926800FA28AC /* fileenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileenc.h; sourceTree = "<group>"; };
+		6AC61D201E13926800FA28AC /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		6AC61D211E13926800FA28AC /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		6AC61D221E13926800FA28AC /* prng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prng.c; sourceTree = "<group>"; };
+		6AC61D231E13926800FA28AC /* prng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prng.h; sourceTree = "<group>"; };
+		6AC61D241E13926800FA28AC /* pwd2key.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pwd2key.c; sourceTree = "<group>"; };
+		6AC61D251E13926800FA28AC /* pwd2key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pwd2key.h; sourceTree = "<group>"; };
+		6AC61D261E13926800FA28AC /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		6AC61D271E13926800FA28AC /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		6AC61D291E13926800FA28AC /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		6AC61D2A1E13926800FA28AC /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		6AC61D2B1E13926800FA28AC /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		6AC61D2C1E13926800FA28AC /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		6AC61D2D1E13926800FA28AC /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		6AC61D2E1E13926800FA28AC /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		6AC61D2F1E13926800FA28AC /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		6AC61D301E13926800FA28AC /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		6AC61D311E13926800FA28AC /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		6AC61D321E13926800FA28AC /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		6AC61D331E13926800FA28AC /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		6AC61D341E13926800FA28AC /* SSZipCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipCommon.h; sourceTree = "<group>"; };
+		6AC61D351E13926800FA28AC /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		BF976549E1CE96309FEA0E3F /* Pods-ReactNativeHotFix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeHotFix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNativeHotFix/Pods-ReactNativeHotFix.debug.xcconfig"; sourceTree = "<group>"; };
 		D8AF58A3283BB16F8DD15566 /* Pods-ReactNativeHotFix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeHotFix.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNativeHotFix/Pods-ReactNativeHotFix.release.xcconfig"; sourceTree = "<group>"; };
 		EABDF29634C2D24DF6EA5F55 /* Pods_ReactNativeHotFix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactNativeHotFix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +202,7 @@
 		6AB6B32B1DD5C5FC00FC9540 /* ReactNativeHotFix */ = {
 			isa = PBXGroup;
 			children = (
+				6AC61D111E13926800FA28AC /* SSZipArchive */,
 				6A6A3DC71DDC3DE0001987DA /* md5 */,
 				6A6A3DCC1DDC3DE0001987DA /* bsdiff4 */,
 				6AB6B32C1DD5C5FC00FC9540 /* ReactNativeHotFix.h */,
@@ -148,6 +217,63 @@
 				EABDF29634C2D24DF6EA5F55 /* Pods_ReactNativeHotFix.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AC61D111E13926800FA28AC /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				6AC61D121E13926800FA28AC /* aes */,
+				6AC61D281E13926800FA28AC /* minizip */,
+				6AC61D321E13926800FA28AC /* SSZipArchive.h */,
+				6AC61D331E13926800FA28AC /* SSZipArchive.m */,
+				6AC61D341E13926800FA28AC /* SSZipCommon.h */,
+				6AC61D351E13926800FA28AC /* ZipArchive.h */,
+			);
+			path = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		6AC61D121E13926800FA28AC /* aes */ = {
+			isa = PBXGroup;
+			children = (
+				6AC61D131E13926800FA28AC /* aes.h */,
+				6AC61D141E13926800FA28AC /* aes_via_ace.h */,
+				6AC61D151E13926800FA28AC /* aescrypt.c */,
+				6AC61D161E13926800FA28AC /* aeskey.c */,
+				6AC61D171E13926800FA28AC /* aesopt.h */,
+				6AC61D181E13926800FA28AC /* aestab.c */,
+				6AC61D191E13926800FA28AC /* aestab.h */,
+				6AC61D1A1E13926800FA28AC /* brg_endian.h */,
+				6AC61D1B1E13926800FA28AC /* brg_types.h */,
+				6AC61D1C1E13926800FA28AC /* entropy.c */,
+				6AC61D1D1E13926800FA28AC /* entropy.h */,
+				6AC61D1E1E13926800FA28AC /* fileenc.c */,
+				6AC61D1F1E13926800FA28AC /* fileenc.h */,
+				6AC61D201E13926800FA28AC /* hmac.c */,
+				6AC61D211E13926800FA28AC /* hmac.h */,
+				6AC61D221E13926800FA28AC /* prng.c */,
+				6AC61D231E13926800FA28AC /* prng.h */,
+				6AC61D241E13926800FA28AC /* pwd2key.c */,
+				6AC61D251E13926800FA28AC /* pwd2key.h */,
+				6AC61D261E13926800FA28AC /* sha1.c */,
+				6AC61D271E13926800FA28AC /* sha1.h */,
+			);
+			path = aes;
+			sourceTree = "<group>";
+		};
+		6AC61D281E13926800FA28AC /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				6AC61D291E13926800FA28AC /* crypt.h */,
+				6AC61D2A1E13926800FA28AC /* ioapi.c */,
+				6AC61D2B1E13926800FA28AC /* ioapi.h */,
+				6AC61D2C1E13926800FA28AC /* mztools.c */,
+				6AC61D2D1E13926800FA28AC /* mztools.h */,
+				6AC61D2E1E13926800FA28AC /* unzip.c */,
+				6AC61D2F1E13926800FA28AC /* unzip.h */,
+				6AC61D301E13926800FA28AC /* zip.c */,
+				6AC61D311E13926800FA28AC /* zip.h */,
+			);
+			path = minizip;
 			sourceTree = "<group>";
 		};
 		8061C0B0BB6331E3C94B33C1 /* Pods */ = {
@@ -167,11 +293,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A6A3DE11DDC3DE0001987DA /* bzlib_private.h in Headers */,
+				6AC61D481E13926800FA28AC /* pwd2key.h in Headers */,
+				6AC61D4B1E13926800FA28AC /* crypt.h in Headers */,
+				6AC61D421E13926800FA28AC /* fileenc.h in Headers */,
 				6A6A3DDE1DDC3DE0001987DA /* bspatch.h in Headers */,
+				6AC61D461E13926800FA28AC /* prng.h in Headers */,
 				6A6A3DD81DDC3DE0001987DA /* NSData+MD5.h in Headers */,
+				6AC61D541E13926800FA28AC /* SSZipArchive.h in Headers */,
+				6AC61D371E13926800FA28AC /* aes_via_ace.h in Headers */,
+				6AC61D3D1E13926800FA28AC /* brg_endian.h in Headers */,
 				6AE49E591DDAB2E200AB07BC /* ReactNativeHotFix.h in Headers */,
 				6A6A3DE01DDC3DE0001987DA /* bzlib.h in Headers */,
+				6AC61D3C1E13926800FA28AC /* aestab.h in Headers */,
+				6AC61D3E1E13926800FA28AC /* brg_types.h in Headers */,
+				6AC61D441E13926800FA28AC /* hmac.h in Headers */,
+				6AC61D4F1E13926800FA28AC /* mztools.h in Headers */,
+				6AC61D4A1E13926800FA28AC /* sha1.h in Headers */,
+				6AC61D401E13926800FA28AC /* entropy.h in Headers */,
 				6A6A3DDA1DDC3DE0001987DA /* NSString+MD5.h in Headers */,
+				6AC61D361E13926800FA28AC /* aes.h in Headers */,
+				6AC61D561E13926800FA28AC /* SSZipCommon.h in Headers */,
+				6AC61D571E13926800FA28AC /* ZipArchive.h in Headers */,
+				6AC61D511E13926800FA28AC /* unzip.h in Headers */,
+				6AC61D3A1E13926800FA28AC /* aesopt.h in Headers */,
+				6AC61D4D1E13926800FA28AC /* ioapi.h in Headers */,
+				6AC61D531E13926800FA28AC /* zip.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,18 +417,32 @@
 				6A6A3E051DDC3EAB001987DA /* NSData+MD5.m in Sources */,
 				6A6A3E061DDC3EAB001987DA /* NSString+MD5.m in Sources */,
 				6A6A3E071DDC3EAC001987DA /* blocksort.c in Sources */,
+				6AC61D471E13926800FA28AC /* pwd2key.c in Sources */,
+				6AC61D391E13926800FA28AC /* aeskey.c in Sources */,
+				6AC61D551E13926800FA28AC /* SSZipArchive.m in Sources */,
+				6AC61D3F1E13926800FA28AC /* entropy.c in Sources */,
 				6A6A3E081DDC3EAC001987DA /* bspatch.c in Sources */,
 				6A6A3E091DDC3EAC001987DA /* bspatch.h in Sources */,
 				6A6A3E0A1DDC3EAC001987DA /* bzlib.c in Sources */,
+				6AC61D411E13926800FA28AC /* fileenc.c in Sources */,
+				6AC61D381E13926800FA28AC /* aescrypt.c in Sources */,
+				6AC61D451E13926800FA28AC /* prng.c in Sources */,
+				6AC61D4E1E13926800FA28AC /* mztools.c in Sources */,
+				6AC61D491E13926800FA28AC /* sha1.c in Sources */,
 				6A6A3E0B1DDC3EAC001987DA /* bzlib.h in Sources */,
 				6A6A3E0C1DDC3EAC001987DA /* bzlib_private.h in Sources */,
 				6A6A3E0D1DDC3EAC001987DA /* compress.c in Sources */,
 				6A6A3E0E1DDC3EAC001987DA /* crctable.c in Sources */,
+				6AC61D501E13926800FA28AC /* unzip.c in Sources */,
 				6A6A3E0F1DDC3EAC001987DA /* decompress.c in Sources */,
+				6AC61D431E13926800FA28AC /* hmac.c in Sources */,
+				6AC61D3B1E13926800FA28AC /* aestab.c in Sources */,
 				6A6A3E101DDC3EAC001987DA /* huffman.c in Sources */,
 				6A6A3E111DDC3EAC001987DA /* randtable.c in Sources */,
 				6AE49E491DDAB19900AB07BC /* ReactNativeHotFix.h in Sources */,
+				6AC61D521E13926800FA28AC /* zip.c in Sources */,
 				6AB6B32E1DD5C5FC00FC9540 /* ReactNativeHotFix.m in Sources */,
+				6AC61D4C1E13926800FA28AC /* ioapi.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
