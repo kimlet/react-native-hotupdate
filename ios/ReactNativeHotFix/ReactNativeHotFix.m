@@ -123,19 +123,36 @@ static bool isFirstAccess = YES;
             NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
             if (httpResp.statusCode == 200) {
                 /**
-                 *{
-                 "patchFileMd5": "ccefa78e34de5c11c76f12d994c34088",
-                 "originFileMd5": "9b9119e299bc6c1b2928f5ea37b93ddc",
-                 "targetFileMd5": "9b9119e299bc6c1b2928f5ea37b93ddc"
-                 *}
+                 {
+                 "ok": true,
+                 "md5": {
+                 "patchFileMd5": "3dd617405e51c97cacf73e3b3cbf1328",
+                 "originFileMd5": "d3f55a8dc827bf760e3588a8c4e5e8ef",
+                 "targetFileMd5": "f12cd950240cad066e2eea92e1c9752b"
+                 },
+                 "patch_url": "/rn_patch/v0.0.8/patches/ios/v0.0.6_v0.0.8"
+                 }
                  */
                 NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-                NSString *originFileMd5 = json[@"originFileMd5"];
-                NSString *targetFileMd5 = json[@"targetFileMd5"];
-                NSString *patchFileMd5 = json[@"patchFileMd5"];
+                NSString *msg = json[@"msg"];
+                NSNumber *ok = json[@"ok"];
                 
-                [self start:originFileMd5 targetFileMd5:targetFileMd5 patchFileMd5:patchFileMd5];
-                NSLog(@"success %@", json[@"originFileMd5"]);
+                
+                if (ok.boolValue) {
+                    NSDictionary *md5 = json[@"md5"];
+                    
+                    NSString *originFileMd5 = [md5 objectForKey:@"originFileMd5"];
+                    NSString *targetFileMd5 = [md5 objectForKey:@"targetFileMd5"];
+                    NSString *patchFileMd5 = [md5 objectForKey:@"patchFileMd5"];
+                    
+                    self.patchUrl = [NSURL URLWithString:json[@"patch_url"]];
+                    [self start:originFileMd5 targetFileMd5:targetFileMd5 patchFileMd5:patchFileMd5];
+                    
+                    
+                    NSLog(@"success %@", json[@"originFileMd5"]);
+                }else{
+                    [self.delegate ReactNativeHotFix:self updateFailed:[@"response json error :" stringByAppendingString:msg]];
+                }
             }else{
                 [self.delegate ReactNativeHotFix:self updateFailed:@"service error"];
             }

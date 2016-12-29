@@ -192,11 +192,32 @@ public class ReactNativeHotFix {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, upgradeUrl, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject jsonObject) {
+                /**
+                 {
+                 "ok": true,
+                 "md5": {
+                 "patchFileMd5": "3dd617405e51c97cacf73e3b3cbf1328",
+                 "originFileMd5": "d3f55a8dc827bf760e3588a8c4e5e8ef",
+                 "targetFileMd5": "f12cd950240cad066e2eea92e1c9752b"
+                 },
+                 "patch_url": "/rn_patch/v0.0.8/patches/ios/v0.0.6_v0.0.8"
+                 }
+                 */
+
+
                 try {
-                    String originFileMd5 = jsonObject.getString("originFileMd5");
-                    String targetFileMd5 = jsonObject.getString("targetFileMd5");
-                    String patchFileMd5 = jsonObject.getString("patchFileMd5");
-                    start(originFileMd5, targetFileMd5, patchFileMd5, patchUrl);
+                    boolean ok = jsonObject.getBoolean("ok");
+                    if (ok){
+                        JSONObject md5 = jsonObject.getJSONObject("md5");
+
+                        String originFileMd5 = md5.getString("originFileMd5");
+                        String targetFileMd5 = md5.getString("targetFileMd5");
+                        String patchFileMd5 = md5.getString("patchFileMd5");
+
+                        patchUrl = jsonObject.getString("patch_url");
+                        start(originFileMd5, targetFileMd5, patchFileMd5, patchUrl);
+                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                     sendMessageWithFail();
