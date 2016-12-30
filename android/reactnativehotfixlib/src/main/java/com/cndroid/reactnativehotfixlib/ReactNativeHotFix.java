@@ -37,8 +37,8 @@ import java.lang.ref.WeakReference;
 
 public class ReactNativeHotFix {
     public static final String EXTRAROOTBUNDLEPATH = "extraBundleRootPath";
-    public static final int CODE_FAIL = 0;
-    public static final int CODE_SUCCESS = 1;
+    public static final int CODE_FAIL = 980;
+    public static final int CODE_SUCCESS = 981;
 
 
     private static final String TAG = "ReactNativeHotFix";
@@ -50,6 +50,7 @@ public class ReactNativeHotFix {
      * url for upgrade
      */
     private String upgradeUrl;
+
 
     /**
      * local bundle path where is index.android.bundle
@@ -108,6 +109,10 @@ public class ReactNativeHotFix {
         return this;
     }
 
+    public String getExtraBundleRootPath() {
+        return extraBundleRootPath;
+    }
+
     public ReactNativeHotFix setHandler(Handler handler) {
         this.handler = handler;
         return this;
@@ -125,7 +130,7 @@ public class ReactNativeHotFix {
     }
 
 
-    private void initialResource() {
+    public void initialResource() {
         extraJSPath = extraBundleRootPath + "index.android.jsbundle";
         extraZipBoundPath = extraBundleRootPath + "android.zip";
         extraInfoPath = extraBundleRootPath + "info.json";
@@ -216,6 +221,8 @@ public class ReactNativeHotFix {
 
                         patchUrl = jsonObject.getString("patch_url");
                         start(originFileMd5, targetFileMd5, patchFileMd5, patchUrl);
+                    }else{
+                        sendMessageWithFail();
                     }
 
                 } catch (JSONException e) {
@@ -397,6 +404,7 @@ public class ReactNativeHotFix {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    sendMessageWithFail();
                 }
             }
         }, new Response.ErrorListener() {
@@ -475,6 +483,7 @@ public class ReactNativeHotFix {
                     handler.sendEmptyMessage(CODE_SUCCESS);
             } catch (IOException e) {
                 e.printStackTrace();
+                sendMessageWithFail();
             }
 
         } else {

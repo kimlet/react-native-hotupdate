@@ -265,9 +265,9 @@ static bool isFirstAccess = YES;
     
     NSError *error = nil;
     
-    NSDictionary *dictionary = @{@"md5": [self getJSBundleFileMd5]};
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:dictionary options:kNilOptions error:&error];
-    [request setHTTPBody:postData];
+//    NSDictionary *dictionary = @{@"md5": [self getJSBundleFileMd5]};
+//    NSData *postData = [NSJSONSerialization dataWithJSONObject:dictionary options:kNilOptions error:&error];
+//    [request setHTTPBody:postData];
     
     
     if(!error){
