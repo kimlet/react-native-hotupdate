@@ -50,34 +50,21 @@ public class ReactNativeHotFix {
      * url for upgrade
      */
     private String upgradeUrl;
-
-
-    /**
-     * local bundle path where is index.android.bundle
-     */
-    private String extraBundleRootPath;
+    private String patchUrl;
+    private ReactNativeHotFixSetup reactNativeHotFixSetup;
 
 
     private Handler handler;
 
-
-    private String patchUrl;
-
-
     private long startTime;
-
-    private String extraZipBoundPath;
-    private String extraJSPath;
-    private String extraInfoPath;
-
 
     public static ReactNativeHotFix create(Context context) {
         ReactNativeHotFix fix = new ReactNativeHotFix();
         fix.weakReferenceContext = new WeakReference<>(context);
+        fix.reactNativeHotFixSetup = ReactNativeHotFixSetup.getInstance();
         fix.initNetwork();
         return fix;
     }
-
 
     private void initNetwork() {
         if (weakReferenceContext.get() == null) return;
@@ -104,15 +91,6 @@ public class ReactNativeHotFix {
         return this;
     }
 
-    public ReactNativeHotFix setExtraBundleRootPath(String path) {
-        this.extraBundleRootPath = path;
-        return this;
-    }
-
-    public String getExtraBundleRootPath() {
-        return extraBundleRootPath;
-    }
-
     public ReactNativeHotFix setHandler(Handler handler) {
         this.handler = handler;
         return this;
@@ -122,8 +100,14 @@ public class ReactNativeHotFix {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
-                initialResource();
-                doStart();
+                if (TextUtils.isEmpty(reactNativeHotFixSetup.getExtraBundleRootPath())
+                        || TextUtils.isEmpty(reactNativeHotFixSetup.getExtraInfoPath())
+                        || TextUtils.isEmpty(reactNativeHotFixSetup.getExtraJSPath())) {
+                    sendMessageWithFail("not initial");
+                } else {
+                    initialResource();
+                    doStart();
+                }
                 return null;
             }
         }.execute();
@@ -131,10 +115,6 @@ public class ReactNativeHotFix {
 
 
     public void initialResource() {
-        extraJSPath = extraBundleRootPath + "index.android.jsbundle";
-        extraZipBoundPath = extraBundleRootPath + "android.zip";
-        extraInfoPath = extraBundleRootPath + "info.json";
-
         // copy zip file to sdcard
         getBundleZipFile();
 
@@ -144,13 +124,13 @@ public class ReactNativeHotFix {
     }
 
     private void unzipItIfNeed() {
-        File jsFile = new File(extraJSPath);
+        File jsFile = new File(reactNativeHotFixSetup.getExtraJSPath());
 
         if (!jsFile.exists()) {
             FileUtils.deleteFileOrFolderSilently(jsFile);
 
             try {
-                FileUtils.unzipFile(new File(extraZipBoundPath), extraBundleRootPath);
+                FileUtils.unzipFile(new File(reactNativeHotFixSetup.getExtraZipBoundPath()), reactNativeHotFixSetup.getExtraBundleRootPath());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -177,15 +157,15 @@ public class ReactNativeHotFix {
                 if (oldOriginFileMd5.equals(originFileMd5)) {
                     downloadFile(patchUrl, targetFileMd5, patchFileMd5);
                 } else {
-                    sendMessageWithFail();
+                    sendMessageWithFail("oldOriginFileMd5 not equal originFileMd5");
                     Log.d(TAG, "oldOriginFileMd5 not equal originFileMd5");
                 }
             } else {
-                sendMessageWithFail();
+                sendMessageWithFail("oldOriginFileMd5 is null");
                 Log.d(TAG, "oldOriginFileMd5 is null");
             }
         } else {
-            sendMessageWithFail();
+            sendMessageWithFail("originFile not exists");
             Log.d(TAG, "originFile not exists");
         }
 
@@ -212,7 +192,8 @@ public class ReactNativeHotFix {
 
                 try {
                     boolean ok = jsonObject.getBoolean("ok");
-                    if (ok){
+                    String message = jsonObject.getString("msg");
+                    if (ok) {
                         JSONObject md5 = jsonObject.getJSONObject("md5");
 
                         String originFileMd5 = md5.getString("originFileMd5");
@@ -221,13 +202,13 @@ public class ReactNativeHotFix {
 
                         patchUrl = jsonObject.getString("patch_url");
                         start(originFileMd5, targetFileMd5, patchFileMd5, patchUrl);
-                    }else{
-                        sendMessageWithFail();
+                    } else {
+                        sendMessageWithFail(message);
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    sendMessageWithFail();
+                    sendMessageWithFail(e.getMessage());
                 }
 
             }
@@ -235,7 +216,7 @@ public class ReactNativeHotFix {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
-                sendMessageWithFail();
+                sendMessageWithFail(error.getMessage());
             }
 
         });
@@ -248,7 +229,7 @@ public class ReactNativeHotFix {
     }
 
     private File getBundleZipFile() {
-        File extraBundleZipFile = new File(extraZipBoundPath);
+        File extraBundleZipFile = new File(reactNativeHotFixSetup.getExtraZipBoundPath());
         if (extraBundleZipFile.exists()) {
             upgradeExtraBundleIFNeed(extraBundleZipFile);
             return extraBundleZipFile;
@@ -272,11 +253,11 @@ public class ReactNativeHotFix {
             FileUtils.deleteFileOrFolderSilently(extraBundleZipFile);
             removeOldFiles();
 
-            extraBundleZipFile = new File(extraZipBoundPath);
+            extraBundleZipFile = new File(reactNativeHotFixSetup.getExtraZipBoundPath());
             copyAssetZipToSDcard(extraBundleZipFile);
 
             try {
-                FileUtils.unzipFile(extraBundleZipFile, extraBundleRootPath);
+                FileUtils.unzipFile(extraBundleZipFile, reactNativeHotFixSetup.getExtraBundleRootPath());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -315,29 +296,28 @@ public class ReactNativeHotFix {
         return null;
     }
 
-
     /**
      * extraVersionCode
      * e.g 23
      *
-     * @return
+     * @return version code
      */
-    public int getExtraVersionCode() {
+    public static int getExtraVersionCode() {
         String version = getExtraVersion();
         if (TextUtils.isEmpty(version)) return -1;
 
-        return Integer.parseInt(getDefaultVersion().replace(".", ""));
+        return Integer.parseInt(version.replace(".", ""));
     }
 
     /**
      * extraVersion
      * e.g 0.2.3
      *
-     * @return
+     * @return version name
      */
-    public String getExtraVersion() {
+    public static String getExtraVersion() {
         try {
-            FileInputStream fileInputStream = new FileInputStream(extraInfoPath);
+            FileInputStream fileInputStream = new FileInputStream(ReactNativeHotFixSetup.getInstance().getExtraInfoPath());
             String jsonInfo = convertStreamToString(fileInputStream);
             JSONObject jsonObject = new JSONObject(jsonInfo);
 
@@ -349,7 +329,8 @@ public class ReactNativeHotFix {
         return null;
     }
 
-    private String convertStreamToString(InputStream is) throws Exception {
+
+    private static String convertStreamToString(InputStream is) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
         String line = null;
@@ -381,12 +362,12 @@ public class ReactNativeHotFix {
     }
 
     private void createDirsForBundleRoot() {
-        File extraRoot = new File(extraBundleRootPath);
+        File extraRoot = new File(reactNativeHotFixSetup.getExtraBundleRootPath());
         if (!extraRoot.exists()) extraRoot.mkdirs();
     }
 
 
-    private void sendMessageWithFail() {
+    private void sendMessageWithFail(String message) {
         if (null != handler) handler.sendEmptyMessage(CODE_FAIL);
     }
 
@@ -400,17 +381,17 @@ public class ReactNativeHotFix {
                         savePatchFile(response, patchFileMd5, targetFileMd5);
                     } else {
                         Log.d(TAG, "download file failed");
-                        sendMessageWithFail();
+                        sendMessageWithFail("download file failed");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    sendMessageWithFail();
+                    sendMessageWithFail(e.getMessage());
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                sendMessageWithFail();
+                sendMessageWithFail(volleyError.getMessage());
                 volleyError.printStackTrace();
             }
         }, null);
@@ -426,7 +407,7 @@ public class ReactNativeHotFix {
         startTime = System.currentTimeMillis();
 
 
-        String patchFile = extraBundleRootPath + "_patch";
+        String patchFile = reactNativeHotFixSetup.getExtraBundleRootPath() + "_patch";
         FileOutputStream outputStream = new FileOutputStream(patchFile);
         outputStream.write(response);
         outputStream.flush();
@@ -439,11 +420,11 @@ public class ReactNativeHotFix {
             if (downloadPatchFileMd5.equals(patchFileMd5)) {
                 applyPatch(targetFileMd5, patchFile);
             } else {
-                sendMessageWithFail();
+                sendMessageWithFail("patchFileMd5 not equal downloadPatchFileMd5");
                 Log.d(TAG, "patchFileMd5 not equal downloadPatchFileMd5");
             }
         } else {
-            sendMessageWithFail();
+            sendMessageWithFail("patchFile is null");
             Log.d(TAG, "patchFile is null");
 
         }
@@ -451,10 +432,10 @@ public class ReactNativeHotFix {
 
     private void applyPatch(String targetFileMd5, String patchFile) {
 
-        String bundleFilePathTemp = extraZipBoundPath + "_temp";
+        String bundleFilePathTemp = reactNativeHotFixSetup.getExtraZipBoundPath() + "_temp";
 
         BSPatch bsPatch = new BSPatch();
-        bsPatch.bspatch(extraZipBoundPath, bundleFilePathTemp, patchFile);
+        bsPatch.bspatch(reactNativeHotFixSetup.getExtraZipBoundPath(), bundleFilePathTemp, patchFile);
 
         File zipFileTemp = new File(bundleFilePathTemp);
 
@@ -465,37 +446,37 @@ public class ReactNativeHotFix {
         if (generatedTargetFileMd5.equals(targetFileMd5)) {
 
             // delete old zip file
-            FileUtils.deleteFileOrFolderSilently(new File(extraZipBoundPath));
+            FileUtils.deleteFileOrFolderSilently(new File(reactNativeHotFixSetup.getExtraZipBoundPath()));
 
             // rename to real bundle
-            zipFileTemp.renameTo(new File(extraZipBoundPath));
+            zipFileTemp.renameTo(new File(reactNativeHotFixSetup.getExtraZipBoundPath()));
 
             // delete patch file
             FileUtils.deleteFileOrFolderSilently(new File(patchFile));
             removeOldFiles();
 
             try {
-                FileUtils.unzipFile(new File(extraZipBoundPath), extraBundleRootPath);
+                FileUtils.unzipFile(new File(reactNativeHotFixSetup.getExtraZipBoundPath()), reactNativeHotFixSetup.getExtraBundleRootPath());
 
-                Log.d(TAG, "success" + extraBundleRootPath + " wastTime=" + (System.currentTimeMillis() - startTime));
+                Log.d(TAG, "success" + reactNativeHotFixSetup.getExtraBundleRootPath() + " wastTime=" + (System.currentTimeMillis() - startTime));
 
                 if (null != handler)
                     handler.sendEmptyMessage(CODE_SUCCESS);
             } catch (IOException e) {
                 e.printStackTrace();
-                sendMessageWithFail();
+                sendMessageWithFail(e.getMessage());
             }
 
         } else {
             Log.d(TAG, "generatedTargetFileMd5 not equal targetFileMd5");
-            sendMessageWithFail();
+            sendMessageWithFail("generatedTargetFileMd5 not equal targetFileMd5");
         }
     }
 
     private void removeOldFiles() {
-        FileUtils.deleteFileOrFolderSilently(new File(extraJSPath));
-        FileUtils.deleteFileOrFolderSilently(new File(extraInfoPath));
-        FileUtils.deleteFileOrFolderSilently(new File(extraJSPath + ".meta"));
+        FileUtils.deleteFileOrFolderSilently(new File(reactNativeHotFixSetup.getExtraJSPath()));
+        FileUtils.deleteFileOrFolderSilently(new File(reactNativeHotFixSetup.getExtraInfoPath()));
+        FileUtils.deleteFileOrFolderSilently(new File(reactNativeHotFixSetup.getExtraJSPath() + ".meta"));
     }
 
 
