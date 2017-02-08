@@ -26,6 +26,8 @@
 		6A6A3E0F1DDC3EAC001987DA /* decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A3DD51DDC3DE0001987DA /* decompress.c */; };
 		6A6A3E101DDC3EAC001987DA /* huffman.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A3DD61DDC3DE0001987DA /* huffman.c */; };
 		6A6A3E111DDC3EAC001987DA /* randtable.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A3DD71DDC3DE0001987DA /* randtable.c */; };
+		6A8BA1FD1E48557000AC4811 /* GameClientHotFix.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A8BA1FB1E48557000AC4811 /* GameClientHotFix.h */; };
+		6A8BA1FE1E48557000AC4811 /* GameClientHotFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8BA1FC1E48557000AC4811 /* GameClientHotFix.m */; };
 		6AB6B32E1DD5C5FC00FC9540 /* ReactNativeHotFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6B32D1DD5C5FC00FC9540 /* ReactNativeHotFix.m */; };
 		6AB6B32F1DD5C5FC00FC9540 /* ReactNativeHotFix.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 6AB6B32C1DD5C5FC00FC9540 /* ReactNativeHotFix.h */; };
 		6AC61D361E13926800FA28AC /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC61D131E13926800FA28AC /* aes.h */; };
@@ -98,6 +100,8 @@
 		6A6A3DD51DDC3DE0001987DA /* decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decompress.c; sourceTree = "<group>"; };
 		6A6A3DD61DDC3DE0001987DA /* huffman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = huffman.c; sourceTree = "<group>"; };
 		6A6A3DD71DDC3DE0001987DA /* randtable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = randtable.c; sourceTree = "<group>"; };
+		6A8BA1FB1E48557000AC4811 /* GameClientHotFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameClientHotFix.h; sourceTree = "<group>"; };
+		6A8BA1FC1E48557000AC4811 /* GameClientHotFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameClientHotFix.m; sourceTree = "<group>"; };
 		6AB6B3291DD5C5FC00FC9540 /* libReactNativeHotFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeHotFix.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB6B32C1DD5C5FC00FC9540 /* ReactNativeHotFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeHotFix.h; sourceTree = "<group>"; };
 		6AB6B32D1DD5C5FC00FC9540 /* ReactNativeHotFix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeHotFix.m; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 		6AB6B32B1DD5C5FC00FC9540 /* ReactNativeHotFix */ = {
 			isa = PBXGroup;
 			children = (
+				6A8BA1FB1E48557000AC4811 /* GameClientHotFix.h */,
+				6A8BA1FC1E48557000AC4811 /* GameClientHotFix.m */,
 				6AC61D111E13926800FA28AC /* SSZipArchive */,
 				6A6A3DC71DDC3DE0001987DA /* md5 */,
 				6A6A3DCC1DDC3DE0001987DA /* bsdiff4 */,
@@ -298,6 +304,7 @@
 				6AC61D421E13926800FA28AC /* fileenc.h in Headers */,
 				6A6A3DDE1DDC3DE0001987DA /* bspatch.h in Headers */,
 				6AC61D461E13926800FA28AC /* prng.h in Headers */,
+				6A8BA1FD1E48557000AC4811 /* GameClientHotFix.h in Headers */,
 				6A6A3DD81DDC3DE0001987DA /* NSData+MD5.h in Headers */,
 				6AC61D541E13926800FA28AC /* SSZipArchive.h in Headers */,
 				6AC61D371E13926800FA28AC /* aes_via_ace.h in Headers */,
@@ -436,6 +443,7 @@
 				6AC61D501E13926800FA28AC /* unzip.c in Sources */,
 				6A6A3E0F1DDC3EAC001987DA /* decompress.c in Sources */,
 				6AC61D431E13926800FA28AC /* hmac.c in Sources */,
+				6A8BA1FE1E48557000AC4811 /* GameClientHotFix.m in Sources */,
 				6AC61D3B1E13926800FA28AC /* aestab.c in Sources */,
 				6A6A3E101DDC3EAC001987DA /* huffman.c in Sources */,
 				6A6A3E111DDC3EAC001987DA /* randtable.c in Sources */,

@@ -192,7 +192,11 @@ public class ReactNativeHotFix {
 
                 try {
                     boolean ok = jsonObject.getBoolean("ok");
-                    String message = jsonObject.getString("msg");
+                    String message = "unknown";
+                    if(jsonObject.has("msg")){
+                        message = jsonObject.getString("msg");
+                    }
+
                     if (ok) {
                         JSONObject md5 = jsonObject.getJSONObject("md5");
 
