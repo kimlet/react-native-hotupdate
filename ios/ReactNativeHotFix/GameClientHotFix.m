@@ -29,21 +29,21 @@ static bool isFirstAccess = YES;
     self.extraRootPath = extraRootPath;
     self.upgradeUrl = upgradeUrl;
     
-    self.defaultGameClientZipFilePath = [defaultRootPath stringByAppendingString:@"game_client.zip"];
-    self.extraGameClientZipFilePath = [self.extraRootPath stringByAppendingString:@"game_client.zip"];
-    self.extraGameClientPath = [defaultRootPath stringByAppendingString:@"game_client"];
+    self.defaultGameClientZipFilePath = [defaultRootPath stringByAppendingPathComponent:@"game_client.zip"];
+    self.extraGameClientZipFilePath = [self.extraRootPath stringByAppendingPathComponent:@"game_client.zip"];
+    self.extraGameClientPath = [extraRootPath stringByAppendingPathComponent:@"game_client"];
     
-
+    
     [self initResource];
 }
 
 -(void) initResource{
     if(![[NSFileManager defaultManager] fileExistsAtPath:self.extraGameClientPath]){
         [[NSFileManager defaultManager] copyItemAtPath:self.defaultGameClientZipFilePath toPath:self.extraGameClientZipFilePath error:nil];
-        [SSZipArchive unzipFileAtPath:self.extraGameClientZipFilePath toDestination:self.extraRootPath];
+        [SSZipArchive unzipFileAtPath:self.extraGameClientZipFilePath toDestination:self.extraGameClientPath];
     }else{
-        NSString *defaultInfoJsonFile = [self.defaultRootPath stringByAppendingString:@"info.json"];
-        NSString *extraInfoJsonFile = [self.extraRootPath stringByAppendingString:@"info.json"];
+        NSString *defaultInfoJsonFile = [self.defaultRootPath stringByAppendingPathComponent:@"info.json"];
+        NSString *extraInfoJsonFile = [self.extraGameClientPath stringByAppendingPathComponent:@"info.json"];
         
         int defaultVersionCode = [self getVersionCode:defaultInfoJsonFile];
         int extraVersionCode = [self getVersionCode:extraInfoJsonFile];
@@ -60,27 +60,31 @@ static bool isFirstAccess = YES;
 -(void) start{
     [self loadUpgradeInfo:self.upgradeUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
-            NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            NSString *msg = json[@"msg"];
-            NSNumber *ok = json[@"ok"];
-            
-            
-            if (ok.boolValue) {
-                NSDictionary *md5 = json[@"md5"];
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
+            if (httpResp.statusCode == 200) {
+                NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                 
-                NSString *originFileMd5 = [md5 objectForKey:@"originFileMd5"];
-                NSString *targetFileMd5 = [md5 objectForKey:@"targetFileMd5"];
-                NSString *patchFileMd5 = [md5 objectForKey:@"patchFileMd5"];
+                NSString *msg = json[@"msg"];
+                NSNumber *ok = json[@"ok"];
                 
-                self.patchUrl = [NSURL URLWithString:json[@"patch_url"]];
-                [self start:originFileMd5 targetFileMd5:targetFileMd5 patchFileMd5:patchFileMd5];
-                
-                
-                NSLog(@"success %@", json[@"originFileMd5"]);
+                if (ok.boolValue) {
+                    NSDictionary *md5 = json[@"md5"];
+                    
+                    NSString *originFileMd5 = [md5 objectForKey:@"originFileMd5"];
+                    NSString *targetFileMd5 = [md5 objectForKey:@"targetFileMd5"];
+                    NSString *patchFileMd5 = [md5 objectForKey:@"patchFileMd5"];
+                    
+                    self.patchUrl = [NSURL URLWithString:json[@"patch_url"]];
+                    [self start:originFileMd5 targetFileMd5:targetFileMd5 patchFileMd5:patchFileMd5];
+                    
+                    
+                    NSLog(@"success %@", json[@"originFileMd5"]);
+                }else{
+                    [self.delegate GameClientHotFix:self updateFailed:[@"response json error :" stringByAppendingString:msg]];
+                }
             }else{
-                [self.delegate GameClientHotFix:self updateFailed:[@"response json error :" stringByAppendingString:msg]];
+                [self.delegate GameClientHotFix:self updateFailed:@"service error"];
             }
-
         }else{
             [self.delegate GameClientHotFix:self updateFailed:@"network error"];
         }
@@ -106,9 +110,9 @@ static bool isFirstAccess = YES;
         NSString *oldZipBundleFileMD5 = [self getZipBundleFileMd5];
         if ([oldZipBundleFileMD5 isEqualToString:originFileMd5]) {
             // start to download
-            NSString *patchFile = [self.extraRootPath stringByAppendingString:@"_patch_"];
+            NSString *patchFile = [self.extraGameClientZipFilePath stringByAppendingString:@"_patch_"];
             
-            [self downloadPatchFileAndMerge:self.patchUrl originFile:oldZipBundleFile targetFile:self.extraRootPath targetFileMD5:targetFileMd5 patchFile: patchFile patchFileMD5:patchFileMd5];
+            [self downloadPatchFileAndMerge:self.patchUrl originFile:oldZipBundleFile targetFile:self.extraGameClientZipFilePath targetFileMD5:targetFileMd5 patchFile: patchFile patchFileMD5:patchFileMd5];
             
         }else{
             [self.delegate GameClientHotFix:self updateFailed:@"origin file verify md5 failed"];
@@ -147,10 +151,10 @@ static bool isFirstAccess = YES;
             
             if ([mergedTargetFileMD5 isEqualToString:targetFileMD5]) {// merge success
                 
-                // remove old zipBundle file
+                // remove old zip file
                 [[NSFileManager defaultManager] removeItemAtPath:targetFile error:nil];
                 
-                // use target zipBundle file
+                // use target zip file
                 [[NSFileManager defaultManager] moveItemAtPath:targetFileTemp toPath:targetFile error:nil];
                 
                 // remove patch file
@@ -160,7 +164,7 @@ static bool isFirstAccess = YES;
                 
                 
                 // unzip zipBundle file
-                [SSZipArchive unzipFileAtPath:targetFile toDestination: self.extraRootPath];
+                [SSZipArchive unzipFileAtPath:targetFile toDestination: self.extraGameClientPath];
                 
                 [self.delegate GameClientHotFix:self updateSuccess:@"success"];
             }else{// merge failed
@@ -244,10 +248,10 @@ static bool isFirstAccess = YES;
 
 
 -(NSString *) getExtraVersion{
-    return nil;
+    return [NSString stringWithFormat:@"%d", [self getVersionCode:[self.extraGameClientPath stringByAppendingPathComponent:@"info.json"]]];
 }
 -(NSString *) getDefaultVersion{
-    return nil;
+    return [NSString stringWithFormat:@"%d", [self getVersionCode:[self.defaultRootPath stringByAppendingPathComponent:@"info.json"]]];
 }
 
 @end
